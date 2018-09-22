@@ -1,0 +1,42 @@
+{
+  "home":"HomeDe",
+  "Online-catalog": "Online-catalogDe",
+  "Brochures": "BrochuresDe",
+  "History":"HistoryDe",
+  "Gallery-catalog": "GalleryDe",
+  "Philosophy": "PhilosophyDe",
+  "Careers":"CareersDe",
+  "Contact": "ContactDe",
+  "Products": "ProductsDe",
+  "Purchases": "PurchasesDe",
+  "Quality":"QualityDe",
+  "Sales-Network": "Sales-NetworkDe",
+  "Services": "ServicesDe",
+  "Catalogues":"CataloguesDe",
+  "Company":"CompanyDe",
+  "Sales":"SalesDe",
+  "About":"AboutDe",
+  "BrochuresCDs":"Brochures & CD-s De",
+  "app": {
+    "Welcome": "Willkommen",
+    "Notifications": "Benachrichtigungen",
+    "New": "Neu"
+  },
+  "mainMenu": {
+    "Appointments": "Termine",
+    "Customers": "Kunden",
+    "Products": "Produkte",
+    "Orders": "Bestellungen",
+    "About": "Über",
+    "Logout": "Abmelden"
+  },
+  "pageHeader": {
+    "Dashboard": "Übersicht",
+    "Customers": "Kunden",
+    "Products": "Produkte",
+    "Orders": "Bestellungen",
+    "NotFound": "Nicht gefunden",
+    "About": "Über",
+    "Settings": "Einstellungen"
+  }
+}
