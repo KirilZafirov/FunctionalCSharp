@@ -12,14 +12,6 @@ namespace Company.Models
 
       DbSet<User> UsersDB { get; set; }
 
-      void SaveChanges();
-
-      void BeginTransaction();
-
-      void CommitTransaction();
-
-      void RollbackTransaction();
-
-      void DisposeTransaction();
+    
    }
 }
