@@ -36,6 +36,7 @@
     <Folder Include="Commons\" />
     <Folder Include="Maps\" />
     <Folder Include="Services\" />
+    <Folder Include="wwwroot\Upload\" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

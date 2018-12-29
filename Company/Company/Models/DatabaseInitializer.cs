@@ -46,8 +46,8 @@ namespace Company.Models
             await EnsureRoleAsync(userRoleName, "Default user", new string[] { });
 
             await CreateUserAsync("admin", "tempP@ss123", "Inbuilt Administrator", "admin@kirilzafirov.com", "+1 (123) 000-0000", new string[] { adminRoleName });
-            await CreateUserAsync("user", "tempP@ss123", "Inbuilt Standard User", "user@ebenmonney.com", "+1 (123) 000-0001", new string[] { userRoleName });
-
+            await CreateUserAsync("dragan", "RInoxA2014!", "Inbuilt Administrator", "admin@kirilzafirov.com", "+1 (123) 000-0000", new string[] { adminRoleName });
+            await CreateUserAsync("boban", "RInoxA2014!", "Inbuilt Administrator", "kocevb@ruen.mk", "+1 (123) 000-0000", new string[] { adminRoleName });
             _logger.LogInformation("Inbuilt account generation completed");
          }
 
@@ -80,42 +80,10 @@ namespace Company.Models
                DateCreated = DateTime.UtcNow,
                DateModified = DateTime.UtcNow
             };
-
-            Story story_4 = new Story
-            {
-               Lang = "en",
-               Description = "Something Here _4",
-               DateCreated = DateTime.UtcNow,
-               DateModified = DateTime.UtcNow
-            };
-
-
-
-            Story story_5 = new Story
-            {
-               Lang = "en",
-               Description = "Something Here _5",
-               DateCreated = DateTime.UtcNow,
-               DateModified = DateTime.UtcNow
-            };
-
-            Story story_6 = new Story
-            {
-               Lang = "en",
-               Description = "Something Here _6",
-               DateCreated = DateTime.UtcNow,
-               DateModified = DateTime.UtcNow
-            };
-
-
-
-
+            
             _context.AppStories.Add(story_1);
             _context.AppStories.Add(story_2);
             _context.AppStories.Add(story_3);
-            _context.AppStories.Add(story_4);
-            _context.AppStories.Add(story_5);
-            _context.AppStories.Add(story_6);
 
             await _context.SaveChangesAsync();
 

@@ -25,18 +25,7 @@ namespace Company.Controllers
          _emailer = emailer;
       }
 
-
-
-
-      // GET: api/values
-      [HttpGet]
-      public IActionResult Get()
-      {
-         var allStories = _unitOfWork.Stories.GetAll();
-         return Ok(allStories);
-      }
-
-
+      
       [HttpGet("throw")]
       public IEnumerable<CustomerViewModel> Throw()
       {
@@ -51,7 +40,7 @@ namespace Company.Controllers
 
          string message = EmailTemplates.GetTestEmail(recepientName, DateTime.UtcNow);
 
-         (bool success, string errorMsg) = await _emailer.SendEmailAsync(recepientName, recepientEmail, "Test Email from QuickApp", message);
+         (bool success, string errorMsg) = await _emailer.SendEmailAsync(recepientName, recepientEmail, "Test Email from Ruen", message);
 
          if (success)
             return "Success";

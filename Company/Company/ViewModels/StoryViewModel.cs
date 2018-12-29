@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Company.Models
+namespace Company.ViewModels
 {
-   public class Story : AuditableEntity
+   public class StoryViewModel
    {
       public int Id { get; set; }
 
@@ -15,15 +15,12 @@ namespace Company.Models
 
       public string Description { get; set; }
 
-      public DateTime DateCreated { get; set; }
-
-      public DateTime DateModified { get; set; }
+      public DateTime CreatedDate { get; set; }
 
       public string FileName { get; set; }
 
       public byte[] Image { get; set; }
 
       public virtual int ImageId { get; set; }
-
    }
 }

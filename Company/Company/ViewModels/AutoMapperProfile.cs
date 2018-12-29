@@ -39,8 +39,12 @@ namespace Company.ViewModels
          CreateMap<IdentityRoleClaim<string>, PermissionViewModel>()
              .ConvertUsing(s => Mapper.Map<PermissionViewModel>(ApplicationPermissions.GetPermissionByValue(s.ClaimValue)));
 
-         //CreateMap<Customer, CustomerViewModel>()
-         //    .ReverseMap();
+         CreateMap<Story, StoryViewModel>()
+             .ReverseMap();
+         CreateMap<NewProduct, NewProductViewModel>()
+          .ReverseMap();
+         CreateMap<Brochure, BrochuresViewModel>()
+         .ReverseMap();
 
       }
    }

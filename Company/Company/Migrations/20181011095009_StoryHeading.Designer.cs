@@ -4,14 +4,16 @@ using Company.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Company.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20181011095009_StoryHeading")]
+    partial class StoryHeading
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -120,35 +122,6 @@ namespace Company.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("Company.Models.Brochure", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("CreatedBy")
-                        .HasMaxLength(256);
-
-                    b.Property<DateTime>("CreatedDate");
-
-                    b.Property<string>("Group");
-
-                    b.Property<string>("ImageUrl");
-
-                    b.Property<string>("Title");
-
-                    b.Property<string>("UpdatedBy")
-                        .HasMaxLength(256);
-
-                    b.Property<DateTime>("UpdatedDate");
-
-                    b.Property<string>("Url");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("AppBrochures");
-                });
-
             modelBuilder.Entity("Company.Models.FileHolder", b =>
                 {
                     b.Property<int>("Id")
@@ -159,46 +132,9 @@ namespace Company.Migrations
 
                     b.Property<string>("Name");
 
-                    b.Property<bool>("SliderImage");
-
                     b.HasKey("Id");
 
                     b.ToTable("AppFiles");
-                });
-
-            modelBuilder.Entity("Company.Models.NewProduct", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Code");
-
-                    b.Property<string>("CorrespondsTo");
-
-                    b.Property<string>("CreatedBy")
-                        .HasMaxLength(256);
-
-                    b.Property<DateTime>("CreatedDate");
-
-                    b.Property<string>("Description");
-
-                    b.Property<byte[]>("Image");
-
-                    b.Property<int>("ImageId");
-
-                    b.Property<string>("Lang");
-
-                    b.Property<string>("Name");
-
-                    b.Property<string>("UpdatedBy")
-                        .HasMaxLength(256);
-
-                    b.Property<DateTime>("UpdatedDate");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("AppProducts");
                 });
 
             modelBuilder.Entity("Company.Models.Story", b =>

@@ -13,7 +13,10 @@ namespace Company.Models
    {
       public string CurrentUserId { get; set; }
       public DbSet<Story> AppStories { get; set; }
-    
+      public DbSet<FileHolder> AppFiles { get; set; }
+      public DbSet<NewProduct> AppProducts { get; set; }
+      public DbSet<Brochure> AppBrochures { get; set; }
+      
       public ApplicationDbContext(DbContextOptions options) : base(options)
       { }
 

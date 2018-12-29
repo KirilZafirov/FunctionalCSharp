@@ -15,7 +15,6 @@ using OpenIddict.Abstractions;
 using Company.Authorization;
 using Company.Helpers;
 using Company.ViewModels;
-using Swashbuckle.AspNetCore.Swagger;
 using System;
 using AppPermissions = Company.Core.ApplicationPermissions;
 using Company.Models;
@@ -98,7 +97,7 @@ namespace Company
 
                    // options.UseRollingTokens(); //Uncomment to renew refresh tokens on every refreshToken request
                    // Note: to use JWT access tokens instead of the default encrypted format, the following lines are required:
-                   // options.UseJsonWebTokens();
+                  //  options.UseJsonWebTokens();
                 })
              .AddValidation(); //Only compatible with the default token format. For JWT tokens, use the Microsoft JWT bearer handler.
 
@@ -129,18 +128,18 @@ namespace Company
 
 
 
-         services.AddSwaggerGen(c =>
-         {
-            c.SwaggerDoc("v1", new Info { Title = "Company API", Version = "v1" });
-            c.OperationFilter<AuthorizeCheckOperationFilter>();
-            c.AddSecurityDefinition("oauth2", new OAuth2Scheme
-            {
-               Type = "oauth2",
-               Flow = "password",
-               TokenUrl = "/connect/token",
-               Description = "Note: Leave client_id and client_secret blank"
-            });
-         });
+         //services.AddSwaggerGen(c =>
+         //{
+         //   c.SwaggerDoc("v1", new Info { Title = "Company API", Version = "v1" });
+         //   c.OperationFilter<AuthorizeCheckOperationFilter>();
+         //   c.AddSecurityDefinition("oauth2", new OAuth2Scheme
+         //   {
+         //      Type = "oauth2",
+         //      Flow = "password",
+         //      TokenUrl = "/connect/token",
+         //      Description = "Note: Leave client_id and client_secret blank"
+         //   });
+         //});
 
          services.AddAuthorization(options =>
          {
@@ -150,7 +149,7 @@ namespace Company
             options.AddPolicy(Authorization.Policies.ViewAllRolesPolicy, policy => policy.RequireClaim(CustomClaimTypes.Permission, AppPermissions.ViewRoles));
             options.AddPolicy(Authorization.Policies.ViewRoleByRoleNamePolicy, policy => policy.Requirements.Add(new ViewRoleAuthorizationRequirement()));
             options.AddPolicy(Authorization.Policies.ManageAllRolesPolicy, policy => policy.RequireClaim(CustomClaimTypes.Permission, AppPermissions.ManageRoles));
-
+            options.AddPolicy("AdministratorOnly", policy => policy.RequireRole("administrator"));
             options.AddPolicy(Authorization.Policies.AssignAllowedRolesPolicy, policy => policy.Requirements.Add(new AssignRolesAuthorizationRequirement()));
          });
 
@@ -186,7 +185,7 @@ namespace Company
       // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
       public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
       {
-      loggerFactory.AddConsole(Configuration.GetSection("Logging"));
+         loggerFactory.AddConsole(Configuration.GetSection("Logging"));
          loggerFactory.AddDebug(LogLevel.Warning);
          loggerFactory.AddFile(Configuration.GetSection("Logging"));
 
@@ -217,12 +216,12 @@ namespace Company
          app.UseAuthentication();
 
 
-         app.UseSwagger();
-         app.UseSwaggerUI(c =>
-         {
-            c.DocumentTitle = "Swagger UI - Quick Application";
-            c.SwaggerEndpoint("/swagger/v1/swagger.json", "Company API V1");
-         });
+         //app.UseSwagger();
+         //app.UseSwaggerUI(c =>
+         //{
+         //   c.DocumentTitle = "Swagger UI - Ruen Application";
+         //   c.SwaggerEndpoint("/swagger/v1/swagger.json", "Company API V1");
+         //});
 
 
          app.UseMvc(routes =>
